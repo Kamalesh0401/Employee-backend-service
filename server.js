@@ -28,11 +28,8 @@ app.get('/employees', async (req, res) => {
 
 app.post('/employees', async (req, res) => {
     try {
-        //const { name, designation, age, experience, salary } = req.body;
         const employee = req.body;
         const docRef = await db.collection('employees').add(employee);
-        //res.json({ id: docRef.id, name, designation, age, experience, salary });
-        //await db.firestore().collection('employees').add(employee);
         res.status(200).send('Employee added successfully');
     } catch (error) {
         console.error('Error adding employee:', error);
